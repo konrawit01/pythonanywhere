@@ -14,3 +14,7 @@ git config --global user.email thesombats@gmail.com
 git clone https://github.com/thesombats/pythonanywhere
 mv pythonanywhere mysite
 ```
+
+# แมนแก้ไข
+
+ต่อไปนี้ repo นี้จัดเก็บ source code ของเว็บ
