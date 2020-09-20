@@ -14,3 +14,15 @@ class Choice(models.Model):
 
     def __str__(self):
         return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
+
+class TravelType(models.Model):
+    text = models.CharField(max_length=200)
+
+
+
+class Travel(models.Model):
+    type_travel = models.ForeignKey(TravelType, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    calories = models.IntegerField(max_length=50)
+
+#models.ForeignKey(TravelType, on_delete=models.CASCADE)
