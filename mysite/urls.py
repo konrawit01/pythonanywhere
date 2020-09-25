@@ -8,4 +8,5 @@ urlpatterns = [
     path('myweb/', include('myweb.urls')),
     path('united', views.united),
     path('admin/', admin.site.urls),
+    path('login/', views.login,name="login"),
 ]

@@ -9,6 +9,9 @@ def index(req):
 def united(req):
 	return render(req, 'myweb/united.html')
 
+def login(req):
+	return render(req, 'myweb/login.html')
+
 def detail(request, question_id):
     question = Question.objects.get(id=question_id)
     choices = Choice.objects.filter(question=question)
