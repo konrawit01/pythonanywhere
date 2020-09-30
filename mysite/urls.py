@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from myweb import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.index),
+    #path('', views.index),
     #path('polls/', include('polls.urls')),
-    path('myweb/', include('myweb.urls')),
-    path('united', views.united),
+    path('', include('myweb.urls')),
     path('admin/', admin.site.urls),
-    path('login/', views.login,name="login"),
+
+    
 ]

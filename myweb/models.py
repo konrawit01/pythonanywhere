@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
@@ -23,6 +24,6 @@ class TravelType(models.Model):
 class Travel(models.Model):
     type_travel = models.ForeignKey(TravelType, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
-    calories = models.IntegerField(max_length=50)
+    calories = models.IntegerField(default=0)
 
 #models.ForeignKey(TravelType, on_delete=models.CASCADE)

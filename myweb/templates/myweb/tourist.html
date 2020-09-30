@@ -1,15 +1,15 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+    <!-- tourist แปล ว่า นักท่องเที่ยว -->
 <head>
   <meta charset="utf-8">
   <title>Tarvelgood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css" media="screen">
   <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link href="css/select2.css" rel="stylesheet">
 </head>
 
@@ -17,6 +17,7 @@
 <body>
   <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
+
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" href="#">ท่องเที่ยว</a>
@@ -27,15 +28,14 @@
         </ul>
         <ul class="navbar-nav ml-auto"> 
           
-          <div class="dropdown" <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            ยินดีต้อนรับ...
+          <div class="dropdown">
+            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+              ยินดีต้อนรับ
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">แบบสอบถาม</a>
-              <a class="dropdown-item" href="#">เพิ่มเติม</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/">Logout</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">สถานที่ท่องเที่ยว</a>
+              <a class="dropdown-item" href="#">เกี่ยวกับ</a>
+              <a class="dropdown-item" href="#">admin</a>
             </div>
           </div>
           
@@ -44,39 +44,27 @@
           </li>
           
           <li class="nav-item ml-auto">
-            <a class="nav-link" href="/">Logout</a>
+            <a class="nav-link" href="/signup">Signup</a>
           </li>
         
           <li class="nav-item ml-auto">
             <a class="nav-link " href="/admin">admin</a>
           </li>
         </ul>
-        </div>
-    </div>
-</div>
-
-    <div class="container">
-        <h1>Display Headings</h1>
-        <p>Display headings are used to stand out more than normal headings (larger font-size and lighter font-weight):</p>
-        <h1 class="display-1">Display 1</h1>
-        <h1 class="display-2">Display 2</h1>
-        <h1 class="display-3">Display 3</h1>
-        <h1 class="display-4">Display 4</h1>
       </div>
-
-
-</body>
-
-
+    </div>
 
     
 
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
+</body>
 
 </html>

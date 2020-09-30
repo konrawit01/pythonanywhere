@@ -28,6 +28,16 @@ DEBUG = True
 ALLOWED_HOSTS = [u'localhost', u'127.0.0.1', u'konrawit01.pythonanywhere.com' , u'']
 
 
+
+LOGIN_URL = 'logins'
+LOGIN_REDIRECT_URL = 'user'
+LOGOUT_REDIRECT_URL = 'logins'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
