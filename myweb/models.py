@@ -16,14 +16,28 @@ class Choice(models.Model):
     def __str__(self):
         return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
 
-class TravelType(models.Model):
-    text = models.CharField(max_length=200)
 
+
+
+class TravelType(models.Model):
+    travel_name = models.CharField(max_length=200)
+    travel_wherename = models.CharField(max_length=200)
+    travel_detail = models.TextField(null=100)
+
+    def __str__(self):
+        return f'{self.travel_name}'
 
 
 class Travel(models.Model):
-    type_travel = models.ForeignKey(TravelType, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200)
-    calories = models.IntegerField(default=0)
+    type_travel = models.CharField(max_length=200)
+
+def __str__(self):
+        return f'{self.type_trave}'
+
+class Traveluser(models.Model):
+    travel_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.text}'
 
 #models.ForeignKey(TravelType, on_delete=models.CASCADE)

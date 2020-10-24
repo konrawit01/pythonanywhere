@@ -4,11 +4,21 @@ from django.contrib.auth import logout as logout_user
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from myweb.models import Question
+from myweb.models import Question, Travel
 from django.utils.regex_helper import Choice
+from .models import TravelType
 
 # Create your views here.
 
+
+def contact(req):
+	return render(req, 'myweb/contact.html')
+
+def home(req):
+	return render(req, 'myweb/home.html')
+    
+def admins(req):
+	return render(req, 'myweb/admins.html')
 
 def index(req):
 	return render(req, 'myweb/index.html')
@@ -22,6 +32,9 @@ def united(req):
 def logins(req):
 	return render(req, 'myweb/logins.html')
 
+def traveldo(req):
+	return render(req, 'myweb/traveldo.html')
+
 
 def sign_up(request):
     context = {}
@@ -29,7 +42,9 @@ def sign_up(request):
     if request.method == "POST":
         if form.is_valid():
             user = form.save()
+
             login(request,user)
+
             return redirect('logins')
     context['form']=form
     return render(request,'myweb/sign_up.html',context)
@@ -48,3 +63,12 @@ def results(request, question_id):
 
 def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
+
+
+
+def alltraveltype(request):
+
+    alltraveltype = Travel.objects.all()
+    context = {'alltraveltype':alltraveltype }
+
+    return render(request,'myweb/index.html',context)
