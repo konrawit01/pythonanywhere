@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import logout as logout_user
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from myweb.models import Question, Travel
-from django.utils.regex_helper import Choice
-from .models import TravelType
+
+from .models import Travel, TravelPlaceKeeper , TravelType
 
 # Create your views here.
 
@@ -23,11 +21,11 @@ def admins(req):
 def index(req):
 	return render(req, 'myweb/index.html')
 
-def user(req):
-	return render(req, 'myweb/user.html')
-
-def united(req):
-	return render(req, 'myweb/united.html')
+def user(req): 
+    showtravel = Travel.objects.all()
+    showtravel1 = TravelPlaceKeeper.objects.all()
+    
+    return render(req, 'myweb/user.html',{'showtravel':showtravel,'showtravel1':showtravel1})
 
 def logins(req):
 	return render(req, 'myweb/logins.html')
@@ -49,26 +47,3 @@ def sign_up(request):
     context['form']=form
     return render(request,'myweb/sign_up.html',context)
 
-
-
-
-def detail(request, question_id):
-    question = Question.objects.get(id=question_id)
-    choices = Choice.objects.filter(question=question)
-    return render(request, 'myweb/detail.html',{'question': question, 'choices': choices})
-
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
-
-
-
-def alltraveltype(request):
-
-    alltraveltype = Travel.objects.all()
-    context = {'alltraveltype':alltraveltype }
-
-    return render(request,'myweb/index.html',context)

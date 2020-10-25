@@ -1,43 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
 
+class Travel(models.Model):
+    travel_name = models.CharField(max_length=200,blank=True)
+    travel_wherename = models.CharField(max_length=200,blank=True)
+    travel_detail = models.CharField(max_length=500,blank=True)
+    travelimg = models.CharField(max_length=200,blank=True)
     def __str__(self):
-        return f'{self.question_text}'
-
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
-
-
+        return f'{self.travel_name} , {self.travel_wherename} , {self.travel_detail}'
 
 
 class TravelType(models.Model):
-    travel_name = models.CharField(max_length=200)
-    travel_wherename = models.CharField(max_length=200)
-    travel_detail = models.TextField(null=100)
+    type_travel = models.CharField(max_length=200,blank=True)
+    
+    def __str__(self):
+        return f'{self.type_travel}'
+
+class TravelPlaceKeeper(models.Model):
+    travel_name = models.ForeignKey(Travel, on_delete=models.CASCADE)
+    Keeper_travel_name = models.CharField(max_length=200,blank=True)
 
     def __str__(self):
-        return f'{self.travel_name}'
-
-
-class Travel(models.Model):
-    type_travel = models.CharField(max_length=200)
-
-def __str__(self):
-        return f'{self.type_trave}'
-
-class Traveluser(models.Model):
-    travel_text = models.CharField(max_length=200)
-
-    def __str__(self):
-        return f'{self.text}'
+        return f'ผู้ดูแลสถานที่ : {self.Keeper_travel_name}'
 
 #models.ForeignKey(TravelType, on_delete=models.CASCADE)

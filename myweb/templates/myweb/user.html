@@ -18,11 +18,14 @@
   <link rel="icon" type="image/png" href="https://cdn.pixabay.com/photo/2016/12/05/03/56/travel-1883060__340.png">
   <link href="/static/admin/css/vendor/select2/select2.min.css">
   <link href="static/admin/css/vendor/select2/select2.css">
-  <link rel="stylesheet" type="text/css" href="static/admin/css/style.css">
-  <link href="static/admin/css/background.css" rel="stylesheet">
-  <link href="static/admin/css/background1.css" rel="stylesheet">
+ 
 </head>
-
+<style>
+ body{
+   background-color: aliceblue;
+   
+ }
+</style>
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="#">Travelgood</a>
@@ -59,9 +62,7 @@
     </nav>
 
     <div class="card border-0 shadow my-5">
-      <div class="card-body p-5">
-        <h2> Welcome {{user}} </h2>
-      </div>
+      
       {% if user.is_authenticated %}
       <script>
         alert("Success : {{ user }}");
@@ -71,58 +72,31 @@
       </script>{% endif %}
     </div>
   </div>
-
-  <div class="container">
-    {% block content %}
-    {% for t in alltraveltype %}
-    <h2> {{t.calories}} </h2>
-    <p> </p>
-    {% endfor %}
-    <p> รายชื่อ </p>
-    <br>
-    {% endblock content %}
-  </div>
-
-  <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-    <img src="..." alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-    <span class="w3-right w3-opacity">Recommend</span>
-    <h4>สถานที่แนะนำที่คุณควรต้องไปอย่างมาก</h4><br>
-    <hr class="w3-clear">
-    <p>ชื่อสถานที่ : oppp</p>
-    <img src="..." style="width:100%" class="w3-margin-bottom">
-    <p>ดูสวยมากเลยครับ</p>
-    <p>10/10</p>
-  </div>
-
-
+<br>
+<br>
+  {% for i in showtravel %}
   <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
     <hr class="w3-clear">
-    <h2>สถานที่ท่องเที่ยวที่แนะนำ</h2><br>
-    <h4>ประภาคาร St Joseph Lighthouse
-      รัฐมิชิแกน สหรัฐอเมริกา</h4><br>
+    
+    <h4>ชื่อสถานที่ : {{ i.travel_name }}</h4><br>
+    <h4>ประเทศ : {{ i.travel_wherename }}</h4><br>
+    <img src="{{ i.travelimg }}" class="mx-auto d-block" style="width:70%;cursor:zoom-in"
+      onclick="document.getElementById('modal01{{ i.id }}').style.display='block'">
 
-    <img src="https://travel.mthai.com/app/uploads/2019/11/summer-winter-36.jpg" style="width:100%;cursor:zoom-in"
-      onclick="document.getElementById('modal01').style.display='block'">
-
-    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+    <div id="modal01{{ i.id }}" class="w3-modal" onclick="this.style.display='none'">
       <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
       <div class="w3-modal-content w3-animate-zoom">
-        <img src="https://travel.mthai.com/app/uploads/2019/11/summer-winter-36.jpg" alt="Paris" style="width:100%">
+        <img src="{{ i.travelimg }}" alt="Paris" style="width:100%">
+        
       </div>
     </div>
     <br>
     <br>
-  <p>ประภาคาร St Joseph Lighthouse
-    รัฐมิชิแกน สหรัฐอเมริกา.</p>
-  <p>ประภาคาร St Joseph Lighthouse
-    รัฐมิชิแกน สหรัฐอเมริกา</p>
+  <p>อธิบายสถานที่ : {{ i.travel_detail }}</p>
   <br>
 </div>
-
-
-
-
-
+  {% endfor %}
+  
 
 </body>
 

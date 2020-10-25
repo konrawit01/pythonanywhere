@@ -1,9 +1,8 @@
 from django.contrib import admin
 
-from .models import TravelType ,Travel ,Question ,Choice , Traveluser
+from .models import Travel, TravelType, TravelPlaceKeeper
 
-admin.site.register(Question)
-admin.site.register(Choice)
+exit
 admin.site.register(TravelType)
 admin.site.register(Travel)
-admin.site.register(Traveluser)
+admin.site.register(TravelPlaceKeeper)
